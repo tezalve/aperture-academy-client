@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from './Slider/Slider';
 import Class from './Class/Class';
 import { useQuery } from '@tanstack/react-query'
 import { CardGroup } from 'react-bootstrap';
+import Instructor from './Instructor/Instructor';
 
 const Home = () => {
     const { data } = useQuery({
@@ -12,7 +13,14 @@ const Home = () => {
             return response.json();
         },
     })
-    console.log(data);
+
+    const [ins, setIns] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/instructors')
+            .then(res => res.json())
+            .then(data => setIns(data))
+    }, [])
+    
     return (
         <div>
             <Slider></Slider>
@@ -24,6 +32,18 @@ const Home = () => {
                             key={cls._id}
                             cls={cls}
                         ></Class>)
+                    }
+                </CardGroup>
+            </div>
+
+            <div className='mt-5 bg-image' style={{ backgroundImage: `url("https://t3.ftcdn.net/jpg/05/23/07/10/360_F_523071045_X1O9AKUHikkPSlkWd9BQ7qMLUHXAnqW1.jpg")`}}>
+                <h3 className='text-center'>Favourate Instructors</h3>
+                <CardGroup>
+                    {
+                        ins?.slice(0, 6).map(ins => <Instructor
+                            key={ins._id}
+                            ins={ins}
+                        ></Instructor>)
                     }
                 </CardGroup>
             </div>
