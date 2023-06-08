@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { Button, Image } from 'react-bootstrap';
 import { DarkModeToggle } from '@anatoliygatt/dark-mode-toggle';
+import AA from '../../../../public/logo/AA.png'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -19,7 +20,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-md navbar-light justify-content-center">
                 <ul className="navbar-nav align-items-center d-flex justify-content-around ">
                     <li className="nav-item active p-1">
-                        <Image style={{ width: "40px", height: "40px" }} src="" roundedCircle></Image>
+                        <Image style={{ width: "40px", height: "40px" }} src={AA} roundedCircle></Image>
                     </li>
                     <li className="nav-item active p-1">
                         <Link id='home' className='text-decoration-none' style={{ color: 'black' }}>
