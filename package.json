@@ -13,6 +13,7 @@
     "@anatoliygatt/dark-mode-toggle": "^1.0.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "firebase": "^9.22.1",
     "localforage": "^1.10.0",
@@ -20,7 +21,9 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.11.2",
+    "react-toastify": "^9.1.3",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
