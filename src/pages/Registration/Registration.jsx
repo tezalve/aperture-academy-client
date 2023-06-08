@@ -12,11 +12,20 @@ const Registration = () => {
 
     const { user, createUser } = useContext(AuthContext);
     const [perror, setPerror] = useState('');
-
+    const [pass, setPass] = useState(true);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+    const handleToggle = () => {
+        if (pass) {
+            setPass(false);
+        }
+        else {
+            setPass(true);
+        }
+    }
 
     const handleRegister = event => {
         event.preventDefault();
@@ -24,9 +33,24 @@ const Registration = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmpassword = form.confirmpassword.value;
         const url = form.url.value;
         if (password.length < 6) {
             setPerror('Password length needs to be atleast 6');
+            return;
+        }
+        const cap = /^(?=.*[A-Z]).*$/;
+        if (!cap.test(password)) {
+            setPerror('Password must contain one uppercase letter');
+            return;
+        }
+        const sym = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+        if (!sym.test(password)) {
+            setPerror('Password must contain one special symbol');
+            return;
+        }
+        if (password !== confirmpassword) {
+            setPerror('passwords do not match');
             return;
         }
 
@@ -87,8 +111,15 @@ const Registration = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="*Password" required />
+                        <Form.Control type={pass ? 'password' : 'text'} name="password" placeholder="*Password" required />
                     </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control type={pass ? 'password' : 'text'} name="confirmpassword" placeholder="*Confirm Password" required />
+                    </Form.Group>
+
+                    <a className='btn text-white border-0' onClick={handleToggle}>{pass ? 'Show' : 'Hide'}</a>
 
                     <Form.Group className="mb-3" controlId="formBasicURL">
                         <Form.Label>Photo URL</Form.Label>
