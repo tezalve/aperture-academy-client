@@ -11,10 +11,20 @@ const Login = () => {
 
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [pass, setPass] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
     // storing the last location accessed to reroute after login
     const from = location.state?.from?.pathname || '/';
+
+    const handleToggle = () =>{
+        if(pass){
+            setPass(false);
+        }
+        else{
+            setPass(true);
+        }
+    }
 
     const handleLogin = event => {
         event.preventDefault();
@@ -73,7 +83,8 @@ const Login = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name='password' placeholder="Password" required />
+                        <Form.Control type={pass?'password':'text'} name='password' placeholder="Password" required />
+                        <a className='btn text-white border-0' onClick={handleToggle}>{pass? 'Show': 'Hide'}</a>
                     </Form.Group>
                     <Button variant="danger" type="submit">
                         Login
