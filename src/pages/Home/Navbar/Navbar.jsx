@@ -32,37 +32,26 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li className="nav-item active p-1">
-                        <NavLink id='home' className='text-decoration-none' to={"/alltoys"} style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'black' })}>
-                            All Toys
+                        <NavLink id='home' className='text-decoration-none' to={"/instructors"} style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'black' })}>
+                            Instructors
+                        </NavLink>
+                    </li>
+                    <li className="nav-item p-1">
+                        <NavLink id='blog' className='text-decoration-none' to={"/classes"} style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'black' })}>
+                            Classes
                         </NavLink>
                     </li>
                     {
                         user ?
                             <li className="nav-item active p-1">
                                 {/* had to encode the email string so the route works, decoded in server */}
-                                <NavLink id='home' className='text-decoration-none' to={`/mytoys/${btoa(user.email)}`} style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'black' })}>
-                                    My Toys
+                                <NavLink id='home' className='text-decoration-none' to={`/dashboard`} style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'black' })}>
+                                    Dashboard
                                 </NavLink>
 
                             </li>
                             : ""
                     }
-                    {
-                        user ?
-                            <li className="nav-item active p-1">
-
-                                <NavLink id='home' className='text-decoration-none' to={"/addtoy"} style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'black' })}>
-                                    Add a Toy
-                                </NavLink>
-
-                            </li>
-                            : ""
-                    }
-                    <li className="nav-item p-1">
-                        <NavLink id='blog' className='text-decoration-none' to={"/blog"} style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'black' })}>
-                            Blogs
-                        </NavLink>
-                    </li>
                     <li className="nav-item p-1">
                         {
                             user ?
