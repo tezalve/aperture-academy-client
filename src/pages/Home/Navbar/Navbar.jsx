@@ -17,7 +17,7 @@ const Navbar = () => {
     const [mode, setMode] = useState('dark');
     return (
         <div className='sticky-top'>
-            <nav className="navbar navbar-expand-md navbar-light justify-content-center">
+            <nav className="navbar navbar-expand-md navbar-light bg-light justify-content-center">
                 <ul className="navbar-nav align-items-center d-flex justify-content-around ">
                     <li className="nav-item active p-1">
                         <Image style={{ width: "40px", height: "40px" }} src={AA} roundedCircle></Image>

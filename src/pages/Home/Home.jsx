@@ -4,6 +4,7 @@ import Class from './Class/Class';
 import { useQuery } from '@tanstack/react-query'
 import { CardGroup } from 'react-bootstrap';
 import Instructor from './Instructor/Instructor';
+import Choose from './Choose/Choose';
 
 const Home = () => {
     const { data } = useQuery({
@@ -24,8 +25,8 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            <div className='mt-5 bg-image' style={{ backgroundImage: `url("https://imaginem.io/blacksilver/wp-content/uploads/sites/2/2019/03/events-background-4.jpg")`}}>
-                <h3 className='text-center'>Favourate Classes</h3>
+            <div className='mt-5 bg-image p-5' style={{ backgroundImage: `url("https://imaginem.io/blacksilver/wp-content/uploads/sites/2/2019/03/events-background-4.jpg")`, backgroundAttachment: "fixed"}}>
+                <h1 className='text-center'>Favourate Classes</h1>
                 <CardGroup>
                     {
                         data?.slice(0, 6).map(cls => <Class
@@ -36,8 +37,8 @@ const Home = () => {
                 </CardGroup>
             </div>
 
-            <div className='mt-5 bg-image' style={{ backgroundImage: `url("https://t3.ftcdn.net/jpg/05/23/07/10/360_F_523071045_X1O9AKUHikkPSlkWd9BQ7qMLUHXAnqW1.jpg")`}}>
-                <h3 className='text-center'>Favourate Instructors</h3>
+            <div className='mt-5 bg-image p-5' style={{ backgroundImage: `url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp")`, backgroundAttachment: "fixed"}}>
+                <h1 className='text-center'>Favourate Instructors</h1>
                 <CardGroup>
                     {
                         ins?.slice(0, 6).map(ins => <Instructor
@@ -47,6 +48,7 @@ const Home = () => {
                     }
                 </CardGroup>
             </div>
+            <Choose></Choose>
         </div>
     );
 };
