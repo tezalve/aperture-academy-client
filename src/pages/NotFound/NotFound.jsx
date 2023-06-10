@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NotFound = () => {
     return (
         <div className='text-center'>
-            <Image src=""></Image>
+            <Image src="https://media.tenor.com/PXOXwsJKbSYAAAAC/where-you.gif"></Image>
             <br />
             <Link to={'/'}>Back To Home</Link>
         </div>
