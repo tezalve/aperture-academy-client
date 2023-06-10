@@ -35,6 +35,7 @@ const Registration = () => {
         const password = form.password.value;
         const confirmpassword = form.confirmpassword.value;
         const url = form.url.value;
+        const user = {name, email, url};
         if (password.length < 6) {
             setPerror('Password length needs to be atleast 6');
             return;
@@ -58,6 +59,7 @@ const Registration = () => {
             .then(result => {
                 const loggedUser = result.user;
                 updateUserData(result.user, name, url);
+                saveNewUser(user);
                 toast.success(`welcome ${name}`);
                 setPerror('');
                 form.reset();
@@ -79,6 +81,25 @@ const Registration = () => {
                 .catch(error => {
                     console.error(error);
                 })
+        }
+
+        const saveNewUser = (user) =>{
+            const displayName = user.name;
+            const email = user.email;
+            const photoURL = user.url;
+            const role = "student";
+            const newUser = {displayName, email, photoURL, role};
+            fetch("http://localhost:5000/adduser", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newUser),
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
         }
     }
 

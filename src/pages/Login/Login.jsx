@@ -36,6 +36,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                console.log(loggedUser);
                 setError('');
                 form.reset();
                 toast.success(`Welcome ${loggedUser.displayName}`)
@@ -51,12 +52,32 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 const loggedUser = result.user;
+                saveNewUser(loggedUser);
                 toast.success(`Welcome ${loggedUser.displayName}`)
                 navigate(from);
             })
             .catch(error => {
                 console.error(error);
             })
+    }
+
+    const saveNewUser = (user) =>{
+        const displayName = user.displayName;
+        const email = user.email;
+        const photoURL = user.photoURL;
+        const role = "student";
+        const newUser = {displayName, email, photoURL, role};
+        fetch("http://localhost:5000/adduser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     }
 
     const { loading } = useContext(AuthContext);
