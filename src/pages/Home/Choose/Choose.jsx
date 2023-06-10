@@ -4,7 +4,7 @@ import { Fade } from 'react-awesome-reveal';
 const Choose = () => {
     return (
         <div className='mt-5 text-white'>
-            <div className='bg-image p-5' style={{ backgroundImage: `url("https://media.tenor.com/w1OUcTo6vIIAAAAd/night-wallpaper.gif")`, backgroundAttachment: "fixed" }}>
+            <div className='bg-image p-5' style={{ backgroundImage: `url("https://i.pinimg.com/originals/0b/3d/0c/0b3d0c7d4cba82343643a5f4c48e2fba.gif")`, backgroundAttachment: "fixed" }}>
                 <Fade>
                     <h1 className='text-center'>Why Choose AA?</h1>
                     <div className='row g-0 justify-content-around'>

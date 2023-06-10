@@ -25,7 +25,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='text-center row justify-content-around px-5'>
+            <div className='text-center row g-0 justify-content-around px-5'>
                 <Link className='col-md-3 fa-2x'><FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon></Link>
                 <Link className='col-md-3 fa-2x'><FontAwesomeIcon icon={faTwitter} ></FontAwesomeIcon></Link>
                 <Link className='col-md-3 fa-2x'><FontAwesomeIcon icon={faGoogle} ></FontAwesomeIcon></Link>
