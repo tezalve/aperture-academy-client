@@ -63,7 +63,7 @@ const Dashboard = () => {
                             }
                         </div>
                     </div>
-                    <div className="col-9 py-3">
+                    <div className="col-10 py-3">
                         <Outlet></Outlet>
                     </div>
                 </div>

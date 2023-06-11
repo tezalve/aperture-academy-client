@@ -16,7 +16,10 @@ const Addclass = () => {
         const instructor_email = form.instructor_email.value;
         const price = form.price.value;
         const available_seats = form.available_seats.value;
-        const newClass = { image, class_name, instructor_name, instructor_email, price, available_seats }
+        const status = "pending";
+        const enrolled = 0;
+        const feedback = "";
+        const newClass = { image, class_name, instructor_name, instructor_email, price, available_seats, status, enrolled, feedback}
         fetch("http://localhost:5000/addclass", {
             method: "POST",
             headers: {
@@ -37,7 +40,7 @@ const Addclass = () => {
             <Form onSubmit={handleAddclass}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Picture URL</Form.Label>
-                    <Form.Control name='image' type="text" placeholder="Enter Picture URL" />
+                    <Form.Control name='image' type="text" placeholder="Enter Picture URL" required/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Class Name</Form.Label>
@@ -53,7 +56,7 @@ const Addclass = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Available Seats</Form.Label>
-                    <Form.Control name='available_seats' type="text" placeholder="Enter Available Seat" required />
+                    <Form.Control name='available_seats' type="number" placeholder="Enter Available Seat" required />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Price</Form.Label>
