@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { CardGroup } from 'react-bootstrap';
 import Instructor from './Instructor/Instructor';
 import Choose from './Choose/Choose';
-import { Slide, Bounce } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 
 const Home = () => {
     const { data } = useQuery({
@@ -41,7 +41,7 @@ const Home = () => {
             </div>
             <div className='mt-5 bg-image p-5' style={{ backgroundImage: `url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp")`, backgroundAttachment: "fixed" }}>
                 <h1 className='text-center'>Favourate Instructors</h1>
-                <Bounce delay={100} cascade damping={1e-1}>
+                <Slide>
                     <CardGroup>
                         {
                             ins?.slice(0, 6).map(ins => <Instructor
@@ -50,7 +50,7 @@ const Home = () => {
                             ></Instructor>)
                         }
                     </CardGroup>
-                </Bounce>
+                </Slide>
             </div>
             <Choose></Choose>
         </div>

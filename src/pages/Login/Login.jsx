@@ -36,7 +36,6 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
                 setError('');
                 form.reset();
                 toast.success(`Welcome ${loggedUser.displayName}`)
@@ -76,7 +75,7 @@ const Login = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            
         })
     }
 

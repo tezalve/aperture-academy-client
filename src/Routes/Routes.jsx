@@ -8,6 +8,8 @@ import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
 import Dashboard from "../layouts/Dashboard";
 import PrivateRoute from "./PrivateRoutes";
+import Mclasses from "../pages/Dashboard/Mclasses/Mclasses";
+import Musers from "../pages/Dashboard/Musers/Musers";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +44,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: "/dashboard/mclasses",
+        element: <PrivateRoute><Mclasses></Mclasses></PrivateRoute>
+      },
+      {
+        path: "/dashboard/musers",
+        element: <PrivateRoute><Musers></Musers></PrivateRoute>
+      }
+    ]
   }
 ]);
 
