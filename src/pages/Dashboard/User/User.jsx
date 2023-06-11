@@ -47,10 +47,10 @@ const User = ({ user }) => {
                     <p className="card-title text-center">Role: {user.role}</p>
                 </div>
                 <div>
-                    <Link className={user.role == "student" ? "btn fa-3x text-muted" : "btn fa-3x text-muted disabled"} onClick={handleInstructor}><FontAwesomeIcon icon={faHammer}></FontAwesomeIcon></Link>
+                    <Link className={user.role == "student" ? "btn fa-3x text-warning" : "btn fa-3x text-muted disabled"} onClick={handleInstructor}><FontAwesomeIcon icon={faHammer}></FontAwesomeIcon></Link>
                 </div>
                 <div className='px-1'>
-                    <Link className={user.role == "student" ? "btn fa-3x text-muted" : "btn fa-3x text-muted disabled"} onClick={handleAdmin}><FontAwesomeIcon icon={faPersonChalkboard}></FontAwesomeIcon></Link>
+                    <Link className={user.role == "student" ? "btn fa-3x text-warning" : "btn fa-3x text-muted disabled"} onClick={handleAdmin}><FontAwesomeIcon icon={faPersonChalkboard}></FontAwesomeIcon></Link>
                 </div>
             </div>
         </div>

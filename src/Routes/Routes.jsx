@@ -10,6 +10,10 @@ import Dashboard from "../layouts/Dashboard";
 import PrivateRoute from "./PrivateRoutes";
 import Mclasses from "../pages/Dashboard/Mclasses/Mclasses";
 import Musers from "../pages/Dashboard/Musers/Musers";
+import Addclass from "../pages/Dashboard/Addclass/Addclass";
+import Myclasses from "../pages/Dashboard/Myclasses/Myclasses";
+import AdminRoutes from "./AdminRoutes";
+import InstructorRoutes from "./InstructorRoutes";
 
 const router = createBrowserRouter([
   {
@@ -46,14 +50,24 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+      // Admin Routes
       {
         path: "/dashboard/mclasses",
-        element: <PrivateRoute><Mclasses></Mclasses></PrivateRoute>
+        element: <AdminRoutes><Mclasses></Mclasses></AdminRoutes>
       },
       {
         path: "/dashboard/musers",
-        element: <PrivateRoute><Musers></Musers></PrivateRoute>
-      }
+        element: <AdminRoutes><Musers></Musers></AdminRoutes>
+      },
+      // Insrtuctor Routes
+      {
+        path: "/dashboard/addclass",
+        element: <InstructorRoutes><Addclass></Addclass></InstructorRoutes>
+      },
+      {
+        path: "/dashboard/myclasses",
+        element: <InstructorRoutes><Myclasses></Myclasses></InstructorRoutes>
+      },
     ]
   }
 ]);
