@@ -61,6 +61,23 @@ const Dashboard = () => {
                                     :
                                     ""
                             }
+                            {
+                                individual.role == "student" ?
+                                    <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center text-center" id="menu">
+                                        <li className="nav-item py-4">
+                                            <NavLink to={'/dashboard/msclasses'} className="text-decoration-none" style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'white' })}>
+                                                My Selected Classes
+                                            </NavLink>
+                                        </li>
+                                        <li className="nav-item py-4">
+                                            <NavLink to={'/dashboard/meclasses'} className="text-decoration-none" style={({ isActive }) => (isActive ? { borderBottom: "2px solid black", color: 'red' } : { color: 'white' })}>
+                                                My Enrolled Classes
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                    :
+                                    ""
+                            }
                         </div>
                     </div>
                     <div className="col-10 py-3">
