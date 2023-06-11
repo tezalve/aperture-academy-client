@@ -20,8 +20,6 @@ const StudentRoutes = ({ children }) => {
         setIndLoading(false);
     }, [])
 
-    console.log(individual);
-
     // to shwo spiiner & progress bar while fetching data
     if (loading || indLoading) {
         return (

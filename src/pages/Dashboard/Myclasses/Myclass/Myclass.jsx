@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Myclass = ({ cls }) => {
+const Myclass = ({ cls, toggleShow, getmessage }) => {
+
+    getmessage(cls.feedback);
 
     return (
-        <div className='col-12'>
-            <div className="card col-md-3 align-items-center">
+        <div className='col-3 p-2'>
+            <div className="card align-items-center">
                 <img src={cls.image} height={"100px"} className="" alt="..." />
                 <div className="card-body text-center">
                     <p className="card-title">Class: {cls.class_name}</p>
@@ -34,7 +36,7 @@ const Myclass = ({ cls }) => {
                 </div>
                 
                 <div className="card-body text-center border-right border-dark">
-                    <a className={ cls.status == "approved" || cls.status == "denied"? "btn disabled" : "btn"}><FontAwesomeIcon className='fs-2' icon={faComment} /></a>
+                    <a className={ cls.status == "approved" || cls.status == "pending"? "btn disabled" : "btn"} onClick={toggleShow}><FontAwesomeIcon className='fs-2' icon={faComment} /></a>
                 </div>
                 
                 <div className="card-body text-center border-right border-dark">
