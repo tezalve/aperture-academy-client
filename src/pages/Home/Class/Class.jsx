@@ -6,7 +6,7 @@ const Class = ({ cls }) => {
         <div className='col-md-4 p-5'>
             <Card>
                 <Card.Img className='' width={"100%"} variant="top" src={cls.image} />
-                <Card.Text className='text-center'>{cls.name}</Card.Text>
+                <Card.Text className='text-center'>{cls.class_name}</Card.Text>
             </Card>
         </div>
     );

@@ -61,11 +61,11 @@ const Mclass = ({ cls }) => {
                 </div>
 
                 <div className="card-body text-center border-right border-dark">
-                    <a className={cls.status == "pending" || cls.status == "" ? "btn" : "btn disabled"} onClick={handleApprove}><FontAwesomeIcon className='fs-2 text-success' icon={faThumbsUp} /></a>
+                    <a className={cls.status == "pending" || !cls.status ? "btn" : "btn disabled"} onClick={handleApprove}><FontAwesomeIcon className='fs-2 text-success' icon={faThumbsUp} /></a>
                 </div>
 
                 <div className="card-body text-center border-right border-dark">
-                    <a className={cls.status == "pending" || cls.status == "" ? "btn" : "btn disabled"} onClick={handleDeny}><FontAwesomeIcon className='fs-2 text-danger' icon={faThumbsDown} /></a>
+                    <a className={cls.status == "pending" || !cls.status ? "btn" : "btn disabled"} onClick={handleDeny}><FontAwesomeIcon className='fs-2 text-danger' icon={faThumbsDown} /></a>
                 </div>
 
                 <div className="card-body text-center border-right border-dark">

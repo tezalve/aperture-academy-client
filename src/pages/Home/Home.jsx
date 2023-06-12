@@ -8,13 +8,12 @@ import Choose from './Choose/Choose';
 import { Slide } from "react-awesome-reveal";
 
 const Home = () => {
-    const { data } = useQuery({
-        queryKey: [],
-        queryFn: async () => {
-            const response = await fetch("http://localhost:5000/classes")
-            return response.json();
-        },
-    })
+    const [appclasses, setAppclasses] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/appclasses`)
+            .then(res => res.json())
+            .then(data => setAppclasses(data))
+    }, [])
 
     const [ins, setIns] = useState([]);
     useEffect(() => {
@@ -31,7 +30,7 @@ const Home = () => {
                 <Slide>
                     <CardGroup>
                         {
-                            data?.slice(0, 6).map(cls => <Class
+                            appclasses?.slice(0, 6).map(cls => <Class
                                 key={cls._id}
                                 cls={cls}
                             ></Class>)

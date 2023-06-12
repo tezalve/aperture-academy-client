@@ -17,7 +17,7 @@ const Myclasses = () => {
     const getmessage = (msg) => {
         setMessage(msg);
     }
-
+    console.log(message);
     return (
         <div>
             <Modal show={show} onHide={toggleShow}>

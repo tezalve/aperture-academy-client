@@ -5,7 +5,7 @@ const Instructor = ({ ins }) => {
     return (
         <div className='col-md-2 p-5'>
             <Card>
-                <Card.Img className='' width={"100%"} variant="top" src={ins.image} />
+                <Card.Img className='' width={"100%"} variant="top" src={ins.photoURL} />
             </Card>
         </div>
     );
