@@ -14,7 +14,7 @@ const Myselectedclass = ({ cls }) => {
 
         if (result && cls) {
             console.log(cls);
-            fetch(`http://localhost:5000/deleteaddedclass/${cls.id}`, {
+            fetch(`http://localhost:5000/deleteaddedclass/${cls._id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
