@@ -14,16 +14,16 @@ const Class2 = ({ cls }) => {
         fetch(`http://localhost:5000/individual/${user?.email}`)
             .then(res => res.json())
             .then(data => setIndividual(data))
-    }, )
+    },)
 
     const handleSelect = () => {
         if (individual.role === 'student') {
-            const user_id = individual._id;
-            const class_id = cls._id; 
+            const user_email = individual.email;
+            const class_id = cls._id;
             const class_name = cls.class_name;
             const instructor = cls.instructor;
             const payment_done = false;
-            const addedclass = { user_id, class_id, payment_done, instructor, class_name };
+            const addedclass = { user_email, class_id, payment_done, instructor, class_name };
             fetch("http://localhost:5000/addedclasses", {
                 method: "POST",
                 headers: {
@@ -36,8 +36,10 @@ const Class2 = ({ cls }) => {
                     console.log(data);
                 })
             toast.success(`Successfully Added ${class_name}`)
+        } else if (!user) {
+            toast.warn("Please Log in");
         } else {
-            toast.warn("Not a student");
+            toast.warn("Only Student can select");
         }
     }
 

@@ -19,6 +19,7 @@ import Updatefeedback from "../pages/Dashboard/Mclasses/Updatefeedback/Updatefee
 import StudentRoutes from "./StudentRoutes";
 import Myselectedclasses from "../pages/Dashboard/Student/Myselectedclasses/Myselectedclasses";
 import Myenrolledclasses from "../pages/Dashboard/Student/Myenrolledclasses/Myenrolledclasses";
+import Payment from "../pages/Dashboard/Student/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -86,10 +87,15 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/msclasses",
         element: <StudentRoutes><Myselectedclasses></Myselectedclasses></StudentRoutes>
-      },,
+      },
       {
         path: "/dashboard/meclasses",
         element: <StudentRoutes><Myenrolledclasses></Myenrolledclasses></StudentRoutes>
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <StudentRoutes><Payment></Payment></StudentRoutes>,
+        loader: ({ params }) => fetch(`http://localhost:5000/selectedclassesid/${params.id}`)
       }
     ]
   }

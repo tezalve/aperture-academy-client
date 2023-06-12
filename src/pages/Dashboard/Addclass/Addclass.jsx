@@ -15,7 +15,7 @@ const Addclass = () => {
         const instructor_name = form.instructor_name.value;
         const instructor_email = form.instructor_email.value;
         const price = form.price.value;
-        const available_seats = form.available_seats.value;
+        const available_seats = parseInt(form.available_seats.value);
         const status = "pending";
         const enrolled = 0;
         const feedback = "";
