@@ -48,11 +48,11 @@ const Class2 = ({ cls }) => {
             <div className={cls.available_seats <= 0 ? "card flex-row align-items-center bg-danger" : "card flex-row align-items-center"}>
                 <img src={cls.image} height={"100px"} className="" alt="..." />
                 <div className="card-body text-center">
-                    <h6 className="card-title">Class: {cls.name}</h6>
+                    <h6 className="card-title">Class: {cls.class_name}</h6>
                 </div>
                 <div className="vr"></div>
                 <div className="card-body text-center">
-                    <h6 className="card-title">Instructor name: {cls.instructor}</h6>
+                    <h6 className="card-title">Instructor name: {cls.instructor_name}</h6>
                 </div>
                 <div className="vr"></div>
                 <div className="card-body text-center">
