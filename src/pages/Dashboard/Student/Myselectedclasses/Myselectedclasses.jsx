@@ -10,7 +10,7 @@ const Myselectedclasses = () => {
     const {user} = useContext(AuthContext);
 
     const [data] = useSelectedclasses(user.email);
-
+    
     return (
         <div>
             <h1 className='text-center'>My Classes</h1>

@@ -11,7 +11,7 @@ const Class2 = ({ cls }) => {
 
     const [individual, setIndividual] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/individual/${user?.email}`)
+        fetch(`https://aperture-academy-server.vercel.app/individual/${user?.email}`)
             .then(res => res.json())
             .then(data => setIndividual(data))
     },)
@@ -24,7 +24,7 @@ const Class2 = ({ cls }) => {
             const instructor = cls.instructor;
             const payment_done = false;
             const addedclass = { user_email, class_id, payment_done, instructor, class_name };
-            fetch("http://localhost:5000/addedclasses", {
+            fetch("https://aperture-academy-server.vercel.app/addedclasses", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

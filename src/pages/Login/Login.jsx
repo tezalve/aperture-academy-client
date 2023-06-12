@@ -66,7 +66,7 @@ const Login = () => {
         const photoURL = user.photoURL;
         const role = "student";
         const newUser = {displayName, email, photoURL, role};
-        fetch("http://localhost:5000/adduser", {
+        fetch("https://aperture-academy-server.vercel.app/adduser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

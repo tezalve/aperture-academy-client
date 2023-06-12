@@ -33,7 +33,7 @@ const Checkoutform = ({ selectedClass }) => {
     }
 
     if (paymentDone) {
-        fetch(`http://localhost:5000/paymentdone/${selectedClass._id}`, {
+        fetch(`https://aperture-academy-server.vercel.app/paymentdone/${selectedClass._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Checkoutform = ({ selectedClass }) => {
                 console.log(data);
             })
 
-        fetch(`http://localhost:5000/updateseat/${selectedClass.class_id}`, {
+        fetch(`https://aperture-academy-server.vercel.app/updateseat/${selectedClass.class_id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

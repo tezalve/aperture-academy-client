@@ -14,14 +14,13 @@ const Myselectedclass = ({ cls }) => {
 
         if (result && cls) {
             console.log(cls);
-            fetch(`http://localhost:5000/deleteaddedclass/${cls._id}`, {
+            fetch(`https://aperture-academy-server.vercel.app/deleteaddedclass/${cls._id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
                 })
-
             refetch();
             refetch();
             toast.success(`"${cls.class_name}" deleted succesfully`);

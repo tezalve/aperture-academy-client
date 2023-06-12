@@ -14,7 +14,7 @@ const Updatefeedback = () => {
         const _id = cls._id;
         const feedback = form.feedback.value;
         const updateFeedback = { _id, feedback }
-        fetch("http://localhost:5000/updatefeedback", {
+        fetch("https://aperture-academy-server.vercel.app/updatefeedback", {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

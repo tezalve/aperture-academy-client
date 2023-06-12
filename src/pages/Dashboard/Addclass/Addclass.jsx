@@ -20,7 +20,7 @@ const Addclass = () => {
         const enrolled = 0;
         const feedback = "";
         const newClass = { image, class_name, instructor_name, instructor_email, price, available_seats, status, enrolled, feedback}
-        fetch("http://localhost:5000/addclass", {
+        fetch("https://aperture-academy-server.vercel.app/addclass", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const Addclass = () => {
                     <Form.Label>Class Name</Form.Label>
                     <Form.Control name='class_name' type="text" placeholder="Enter Class Name" required />
                 </Form.Group>
-                <Form.Group className="mb-3" readonly>
+                <Form.Group className="mb-3" readOnly>
                     <Form.Label>Instructor Name</Form.Label>
                     <Form.Control name='instructor_name' type="text" defaultValue={user?.displayName} readOnly/>
                 </Form.Group>

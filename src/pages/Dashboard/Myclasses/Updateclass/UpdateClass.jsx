@@ -23,7 +23,7 @@ const UpdateClass = () => {
         const price = form.price.value;
         const available_seats = form.available_seats.value;
         const updateClass = { _id, image, class_name, instructor_name, instructor_email, price, available_seats }
-        fetch("http://localhost:5000/updateclass", {
+        fetch("https://aperture-academy-server.vercel.app/updateclass", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

@@ -5,7 +5,7 @@ const useSelectedclasses = (email) => {
         queryKey: [],
         queryFn: async () => {
             if (email) {
-                const response = await fetch(`http://localhost:5000/selectedclasses/${email}`);
+                const response = await fetch(`https://aperture-academy-server.vercel.app/selectedclasses/${email}`);
                 return response.json();
             }
         },

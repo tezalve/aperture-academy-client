@@ -10,7 +10,7 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext);
     const [individual, setIndividual] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/individual/${user?.email}`)
+        fetch(`https://aperture-academy-server.vercel.app/individual/${user?.email}`)
             .then(res => res.json())
             .then(data => setIndividual(data))
     }, [])

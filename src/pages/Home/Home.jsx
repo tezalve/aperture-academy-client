@@ -10,14 +10,14 @@ import { Slide } from "react-awesome-reveal";
 const Home = () => {
     const [appclasses, setAppclasses] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/appclasses`)
+        fetch(`https://aperture-academy-server.vercel.app/appclasses`)
             .then(res => res.json())
             .then(data => setAppclasses(data))
     }, [])
 
     const [ins, setIns] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch('https://aperture-academy-server.vercel.app/instructors')
             .then(res => res.json())
             .then(data => setIns(data))
     }, [])

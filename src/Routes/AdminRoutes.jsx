@@ -9,18 +9,11 @@ const AdminRoutes = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
-    const [indLoading, setIndLoading] = useState([false]);
+    const [indLoading, setIndLoading] = useState(true);
     const [individual, setIndividual] = useState([]);
-    useEffect(() => {
-        setIndLoading(true);
-        fetch(`http://localhost:5000/individual/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setIndividual(data))
-        setIndLoading(false);
-    }, [])
 
     // to shwo spiiner & progress bar while fetching data
-    if (loading || indLoading) {
+    if (loading) {
         return (
             <div>
                 <Spinner style={{ position: "fixed", left: "50%" }} animation="border" variant="primary" />
@@ -28,10 +21,26 @@ const AdminRoutes = ({ children }) => {
         );
     }
 
-    if (individual.role == "admin") {
-        return children;
+    useEffect(() => {
+        fetch(`https://aperture-academy-server.vercel.app/individual/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setIndividual(data))
+            .then(setIndLoading(false))
+    }, [])
+
+    if (indLoading) {
+        return (
+            <div>
+                <Spinner style={{ position: "fixed", left: "50%" }} animation="border" variant="primary" />
+            </div>
+        );
     }
-    else {
+
+    if (!indLoading) {
+        if (individual.role == "admin") {
+            return children;
+        }
+    } else {
         toast.warn("Unauthorized Access")
     }
 

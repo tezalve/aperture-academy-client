@@ -7,7 +7,7 @@ const Instructors = () => {
 
     const [ins, setIns] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch('https://aperture-academy-server.vercel.app/instructors')
             .then(res => res.json())
             .then(data => setIns(data))
     }, [])

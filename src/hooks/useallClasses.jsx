@@ -4,7 +4,7 @@ const useallClasses = () => {
     const { refetch, data } = useQuery({
         queryKey: [],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/classes`);
+            const response = await fetch(`https://aperture-academy-server.vercel.app/classes`);
             return response.json();
         },
     })

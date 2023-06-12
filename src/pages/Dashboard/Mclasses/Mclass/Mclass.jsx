@@ -10,7 +10,7 @@ const Mclass = ({ cls }) => {
     const [, refetch] = useallClasses();
 
     const fetchUser = (status) => {
-        fetch(`http://localhost:5000/updateclassstatus/${cls._id}`, {
+        fetch(`https://aperture-academy-server.vercel.app/updateclassstatus/${cls._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

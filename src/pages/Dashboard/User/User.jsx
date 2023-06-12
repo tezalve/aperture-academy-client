@@ -8,7 +8,7 @@ import useUsers from '../../../hooks/useUsers';
 const User = ({ user }) => {
     const [, refetch] = useUsers();
     const fetchUser = (role) => {
-        fetch(`http://localhost:5000/updateuser/${user.email}`, {
+        fetch(`https://aperture-academy-server.vercel.app/updateuser/${user.email}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

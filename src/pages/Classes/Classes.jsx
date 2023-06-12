@@ -6,7 +6,7 @@ import { CardGroup } from 'react-bootstrap';
 const Classes = () => {
     const [appclasses, setAppclasses] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/appclasses`)
+        fetch(`https://aperture-academy-server.vercel.app/appclasses`)
             .then(res => res.json())
             .then(data => setAppclasses(data))
     }, [])

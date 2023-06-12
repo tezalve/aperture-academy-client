@@ -10,7 +10,7 @@ const Myenrolledclasses = () => {
 
     const [enrclasses, seteEnrclasses] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/enrclasses/${user?.email}`)
+        fetch(`https://aperture-academy-server.vercel.app/enrclasses/${user?.email}`)
             .then(res => res.json())
             .then(data => seteEnrclasses(data))
     }, [])

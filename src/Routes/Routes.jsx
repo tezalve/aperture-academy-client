@@ -77,12 +77,12 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/updateclass/:id",
         element: <InstructorRoutes><UpdateClass></UpdateClass></InstructorRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/class/${params.id}`)
+        loader: ({ params }) => fetch(`https://aperture-academy-server.vercel.app/class/${params.id}`)
       },
       {
         path: "/dashboard/updatefeedback/:id",
         element: <AdminRoutes><Updatefeedback></Updatefeedback></AdminRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/class/${params.id}`)
+        loader: ({ params }) => fetch(`https://aperture-academy-server.vercel.app/class/${params.id}`)
       },
       {
         path: "/dashboard/msclasses",
@@ -95,7 +95,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: <StudentRoutes><Payment></Payment></StudentRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/selectedclassesid/${params.id}`)
+        loader: ({ params }) => fetch(`https://aperture-academy-server.vercel.app/selectedclassesid/${params.id}`)
       }
     ]
   }
