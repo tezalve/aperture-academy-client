@@ -41,7 +41,7 @@ const Myclass = ({ cls, toggleShow, getmessage }) => {
                     <a className={cls.status == "approved" || cls.status == "pending" ? "btn disabled" : "btn"} onClick={toggleShow}><FontAwesomeIcon className='fs-2' icon={faComment} /></a>
                 </div>
 
-                <div className="card-body text-center border-right border-dark">
+                <div className={cls.status == "denied" ? "btn disabled card-body text-center border-right border-dark" : "btn card-body text-center border-right border-dark"}>
                     <Link to={`/dashboard/updateclass/${cls._id}`} className="btn"><FontAwesomeIcon className='fs-2' icon={faPenToSquare} /></Link>
                 </div>
             </div>
